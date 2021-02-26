@@ -83,13 +83,16 @@
     maskImage.src = 'agree-fill.png';
 
     axios.get('../code/comments.json')
-        .then(res => (
-        myChart.setOption({
-            series: [{
-                data: res.data.data  //用option.json中的数据给data赋值
-            }]
-        })
-    ));
+    	.then(res => (
+    		myChart.setOption({
+    			series: [{
+    				data: res.data.data  //用option.json中的数据给data赋值
+    			}]
+    		})
+    	))
+        .catch(err => {
+        	console.log('错误' + err);
+        });
 
     // 为echarts对象加载数据
     myChart.setOption(option);
