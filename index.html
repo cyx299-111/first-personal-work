@@ -44,20 +44,22 @@
             shape: 'pentagon',
             maskImage: maskImage,
             drawOutOfBound: false,
-            textStyle: {
-						color: function() {
-							return 'rgb(' + [
-								Math.round(Math.random() * 160),
-								Math.round(Math.random() * 160),
-								Math.round(Math.random() * 160)
-							].join(',') + ')';
-						}
-					},
-					emphasis: {
-						textStyle: {
-							color: '#333'
-						}
-					},
+            textStyle : {
+                normal : {
+                    fontFamily:'sans-serif',
+                    color : function() {
+                        return 'rgb('
+                            + [ Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160) ]
+                                .join(',') + ')';
+                    }
+                },
+                emphasis : {
+                    shadowBlur : 5,
+                    shadowColor : '#333'
+                }
+            },
 
             data: []
 
