@@ -2,12 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
+    <!-- 引入 echarts.js -->
 	<script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+    <!-- 引入 echarts-wordcloud.js -->
 	<script src='./js/echarts-wordcloud.js'></script>
+    <!-- 引入 jquery-3.4.1.min.js -->
 	<script src="js/jquery-3.4.1.min.js"></script>
+    <!-- 引入 jquery.min.js -->
 	<script src="js/jquery.min.js"></script>
+    <!-- 引入 echarts.js -->
 	<script src="js/echarts.js"></script>
+    <!-- 引入 worldcloud.js -->
 	<script src="js/worldcloud.js"></script>
+    <!-- 引入 axios.min.js -->
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 	<title>词云图</title>
@@ -35,6 +42,7 @@
     // 指定图表的配置项和数据
     var option = {
         tooltip: {},
+        //可视化的工具箱
         series: [{
             type: 'wordCloud',
             sizeRange: [10, 100],
@@ -56,8 +64,8 @@
                     }
                 },
                 emphasis : {
-                    shadowBlur : 5,
-                    shadowColor : '#333'
+                    shadowBlur : 5,  //阴影距离
+                    shadowColor : '#333'  //阴影颜色
                 }
             },
 
@@ -78,14 +86,15 @@
         .then(res => (
         myChart.setOption({
             series: [{
-                data: res.data.data 
+                data: res.data.data  //用option.json中的数据给data赋值
             }]
         })
     ));
 
-
+    // 为echarts对象加载数据
     myChart.setOption(option);
 
+    //图表自适应
     window.onresize = myChart.resize();
 
 </script>
